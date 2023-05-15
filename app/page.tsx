@@ -6,7 +6,7 @@ import React from "react";
 type Props = {};
 
 export default function page({}: Props) {
-  const tanks: number[] = [1];
+  const tanks: number[] = [1,2,3,4,5,8,7,9];
   return (
     <section>
       {tanks.length === 0 ? (
@@ -16,7 +16,7 @@ export default function page({}: Props) {
           <h4 className="text-md font-bold">Seleccione el Tanque a Calcular</h4>
 
           <div
-            className="w-full md:max-w-lg flex flex-col pb-2 pr-2 space-y-5 max-h-[calc(100vh-23rem)] lg:max-h-[calc(100vh-15rem)]
+            className="w-full md:max-w-lg flex flex-col pb-2 pr-2 space-y-5 max-h-[calc(100vh-25rem)] lg:max-h-[calc(100vh-15rem)]
           overflow-y-scroll"
           >
             {tanks.map((tank) => (

@@ -5,13 +5,6 @@ type Props = {};
 export default function Tank({}: Props) {
   const percent = (64 / 100) * 100;
 
-  const color =
-    percent < 30
-      ? "error"
-      : percent > 30 && percent <= 65
-      ? "warning"
-      : "accent";
-
   return (
     <div className="bg-base-200 text-base-content text-sm py-5 px-5 rounded-lg">
       <div className="flex justify-around items-center">
@@ -28,7 +21,7 @@ export default function Tank({}: Props) {
           </p>
         </div>
         <div
-          className={`radial-progress text-${color}`}
+          className="radial-progress"
           style={{ "--value": percent } as React.CSSProperties}
         >
           {`${percent}%`}
