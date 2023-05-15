@@ -6,18 +6,18 @@ import Tank from "@/models/Tank";
 
 type Props = {};
 
-export default function stockCalculator({}: Props) {
+export default function StockCalculator({}: Props) {
   const [currentStock, setCurrentStock] = useState(0);
   const [consumption, setConsumption] = useState(0);
   const [measurement, setMeasurement] = useState(0);
   const router = useRouter();
 
+  const tank = new Tank("VC", 7.558, 1.897, 21.359, 153, 18460);
+
   useEffect(
     () => setConsumption(currentStock === 0 ? 0 : tank.stock - currentStock),
     [currentStock]
   );
-
-  const tank = new Tank("VC", 7.558, 1.897, 21.359, 153, 18460);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const value = parseFloat(e.target.value);
@@ -41,7 +41,6 @@ export default function stockCalculator({}: Props) {
   };
 
   const handleClick = () => {
-    console.log({ currentStock, measurement });
     router.push("/");
   };
 

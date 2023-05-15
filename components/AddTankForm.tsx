@@ -21,7 +21,6 @@ export default function AddTankForm({}: Props) {
   const router = useRouter();
 
   const onSubmit: SubmitHandler<Input> = (data) => {
-    console.log(data);
     router.push("/");
   };
 
