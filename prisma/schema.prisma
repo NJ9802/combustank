@@ -27,5 +27,5 @@ model Tank {
 
   stock Float
 
-  adminId String @unique
+  adminId String
 }
