@@ -4,8 +4,10 @@ import { PlusIcon } from "@heroicons/react/24/outline";
 import AddTankInput from "./AddTankInput";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useRouter } from "next/navigation";
+import { useTransition } from "react";
+import { createTank } from "@/app/actions";
 
-type Props = {};
+type Props = { userId: string };
 
 export type Input = {
   name: string;
@@ -16,11 +18,13 @@ export type Input = {
   stock: string;
 };
 
-export default function AddTankForm({}: Props) {
+export default function AddTankForm({ userId }: Props) {
   const { register, handleSubmit } = useForm<Input>();
+  const [isPending, startTransition] = useTransition();
   const router = useRouter();
 
   const onSubmit: SubmitHandler<Input> = (data) => {
+    startTransition(() => createTank(data, userId));
     router.push("/");
   };
 

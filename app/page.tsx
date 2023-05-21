@@ -2,11 +2,20 @@ import FirstHome from "@/components/FirstHome";
 import Tank from "@/components/Tank";
 import Link from "next/link";
 import React from "react";
+import prisma from "@/lib/prisma";
+import { auth } from "@clerk/nextjs";
 
 type Props = {};
 
-export default function page({}: Props) {
-  const tanks: number[] = [1,2,3,4,5,8,7,9];
+export const revalidate = 0;
+
+export default async function page({}: Props) {
+  const { userId } = auth();
+
+  const tanks = await prisma.tank.findMany({
+    where: { adminId: userId || "" },
+  });
+
   return (
     <section>
       {tanks.length === 0 ? (
@@ -20,8 +29,8 @@ export default function page({}: Props) {
           overflow-y-scroll"
           >
             {tanks.map((tank) => (
-              <Link href={`/tank/${tank}`} key={tank}>
-                <Tank />
+              <Link href={`/tank/${tank.id}`} key={tank.id}>
+                <Tank tank={tank} />
               </Link>
             ))}
           </div>

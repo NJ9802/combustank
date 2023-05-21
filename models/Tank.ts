@@ -1,10 +1,7 @@
 export default class Tank {
   constructor(
-    public name: string,
     public averageLength: number,
     public averageHeight: number,
-    public capacity: number,
-    public measurement: number,
     public stock: number
   ) {}
 

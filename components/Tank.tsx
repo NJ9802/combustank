@@ -1,23 +1,32 @@
 import React from "react";
 
-type Props = {};
+type Props = {
+  tank: {
+    id: string;
+    name: string;
+    capacity: number;
+    stock: number;
+    measurement: number;
+  };
+};
 
-export default function Tank({}: Props) {
-  const percent = (64 / 100) * 100;
+export default function Tank({ tank }: Props) {
+  const percent = Math.round((tank.stock / (tank.capacity * 1000)) * 100);
 
   return (
     <div className="bg-base-200 text-base-content text-sm py-5 px-5 rounded-lg">
       <div className="flex justify-around items-center">
         <div>
-          <h4 className="text-lg font-bold">Villa Cuba</h4>
+          <h4 className="text-lg font-bold">{tank.name}</h4>
           <p>
-            Capacidad: <span className="font-semibold">21</span> m3
+            Capacidad: <span className="font-semibold">{tank.capacity}</span> m3
           </p>
           <p>
-            Existencia: <span className="font-semibold">12354</span> lts
+            Existencia: <span className="font-semibold">{tank.stock}</span> lts
           </p>
           <p>
-            Medicion: <span className="font-semibold">96.41</span> cm
+            Medicion: <span className="font-semibold">{tank.measurement}</span>{" "}
+            cm
           </p>
         </div>
         <div

@@ -1,10 +1,13 @@
 import AddTankForm from "@/components/AddTankForm";
 import React from "react";
 import { QuestionMarkCircleIcon } from "@heroicons/react/24/outline";
+import { auth } from "@clerk/nextjs";
 
 type Props = {};
 
-export default function page({}: Props) {
+export default async function page({}: Props) {
+  const {userId} = auth()
+
   return (
     <section>
       <div className="px-5 max-w-lg mx-auto pt-8 flex flex-col justify-center items-center space-y-10">
@@ -20,7 +23,7 @@ export default function page({}: Props) {
               <QuestionMarkCircleIcon className="h-5 w-5" />
             </label>
           </div>
-          <AddTankForm />
+          <AddTankForm userId={userId || ""} />
         </div>
       </div>
 

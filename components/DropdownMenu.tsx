@@ -5,11 +5,13 @@ import React, { useState } from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { HomeIcon } from "@heroicons/react/24/outline";
 import { ArrowRightOnRectangleIcon } from "@heroicons/react/24/outline";
+import { useClerk } from "@clerk/nextjs";
 
 type Props = {};
 
 export default function DropdownMenu({}: Props) {
   const [isOpen, setIsOpen] = useState(false);
+  const { signOut } = useClerk();
 
   return (
     <div className="relative">
@@ -42,10 +44,10 @@ export default function DropdownMenu({}: Props) {
             </Link>
           </li>
           <li>
-            <Link href="/" className="text-sm">
+            <a role="button" onClick={() => signOut()} className="text-sm">
               <ArrowRightOnRectangleIcon className="h-6 w-6 " />
               Cerrar Sesión
-            </Link>
+            </a>
           </li>
         </ul>
       </nav>

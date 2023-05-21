@@ -1,28 +1,40 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useTransition } from "react";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/navigation";
-import Tank from "@/models/Tank";
+import { type Tank } from "@prisma/client";
+import tankConstructor from "@/lib/tankConstructor";
+import { updateTank } from "@/app/actions";
 
-type Props = {};
+type Props = {
+  tank: {
+    id: string;
+    name: string;
+    averageLength: number;
+    averageHeight: number;
+    stock: number;
+  };
+};
 
-export default function StockCalculator({}: Props) {
+export default function StockCalculator({ tank }: Props) {
   const [currentStock, setCurrentStock] = useState(0);
   const [consumption, setConsumption] = useState(0);
   const [measurement, setMeasurement] = useState(0);
   const router = useRouter();
+  const [isPending, startTransition] = useTransition();
 
-  const tank = new Tank("VC", 7.558, 1.897, 21.359, 153, 18460);
+  const tankObject = tankConstructor(tank);
 
   useEffect(
-    () => setConsumption(currentStock === 0 ? 0 : tank.stock - currentStock),
+    () =>
+      setConsumption(currentStock === 0 ? 0 : tankObject.stock - currentStock),
     [currentStock]
   );
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const value = parseFloat(e.target.value);
     if (!isNaN(value)) {
-      const volume = tank.calculateVolume(value);
+      const volume = tankObject.calculateVolume(value);
       setCurrentStock(volume);
       setMeasurement(value);
     } else {
@@ -41,6 +53,7 @@ export default function StockCalculator({}: Props) {
   };
 
   const handleClick = () => {
+    startTransition(() => updateTank(tank.id, currentStock, measurement));
     router.push("/");
   };
 
@@ -77,7 +90,7 @@ export default function StockCalculator({}: Props) {
         <p>
           Consumo:{" "}
           <span className="font-semibold">
-            {consumption === tank.stock
+            {consumption === tankObject.stock
               ? 0
               : isNaN(consumption)
               ? "Error"
