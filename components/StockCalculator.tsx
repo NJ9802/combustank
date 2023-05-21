@@ -2,7 +2,6 @@
 import React, { useState, useEffect, useTransition } from "react";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/navigation";
-import { type Tank } from "@prisma/client";
 import tankConstructor from "@/lib/tankConstructor";
 import { updateTank } from "@/app/actions";
 
@@ -28,7 +27,7 @@ export default function StockCalculator({ tank }: Props) {
   useEffect(
     () =>
       setConsumption(currentStock === 0 ? 0 : tankObject.stock - currentStock),
-    [currentStock]
+    [currentStock, tankObject]
   );
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -57,12 +56,22 @@ export default function StockCalculator({ tank }: Props) {
     router.push("/");
   };
 
-  return (
+  return isPending ? (
+    <div className="flex flex-col space-y-5 justify-center items-center mx-auto mt-10">
+      <strong>Guardando...</strong>
+      <div
+        className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+        role="status"
+      ></div>
+    </div>
+  ) : (
     <div>
       <div className="mt-10">
-        <label className="underline decoration-accent" htmlFor="measurement">
-          Introduzca la nueva Medición
-        </label>
+        {
+          <label className="underline decoration-accent" htmlFor="measurement">
+            Introduzca la nueva Medición
+          </label>
+        }
         <div className="flex mt-5 justify-center">
           <input
             onChange={(e) => handleChange(e)}

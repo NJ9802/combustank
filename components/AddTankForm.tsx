@@ -28,7 +28,15 @@ export default function AddTankForm({ userId }: Props) {
     router.push("/");
   };
 
-  return (
+  return isPending ? (
+    <div className="flex flex-col space-y-5 justify-center items-center mx-auto mt-10">
+      <strong>Creando Recipiente...</strong>
+      <div
+        className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+        role="status"
+      ></div>
+    </div>
+  ) : (
     <form
       onSubmit={handleSubmit(onSubmit)}
       className="flex w-full flex-col space-y-5"
