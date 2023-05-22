@@ -2,7 +2,6 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { ClerkProvider } from "@clerk/nextjs";
 import { Analytics } from '@vercel/analytics/react';
 
 
@@ -19,7 +18,6 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider>
       <html lang="en" data-theme="corporate">
         <body className={inter.className}>
           <Navbar />
@@ -28,6 +26,5 @@ export default async function RootLayout({
           <Analytics />
         </body>
       </html>
-    </ClerkProvider>
   );
 }

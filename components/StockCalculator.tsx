@@ -1,9 +1,8 @@
 "use client";
-import React, { useState, useEffect, useTransition } from "react";
+import React, { useState, useEffect } from "react";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/navigation";
 import tankConstructor from "@/lib/tankConstructor";
-import { updateTank } from "@/app/actions";
 
 type Props = {
   tank: {
@@ -20,7 +19,6 @@ export default function StockCalculator({ tank }: Props) {
   const [consumption, setConsumption] = useState(0);
   const [measurement, setMeasurement] = useState(0);
   const router = useRouter();
-  const [isPending, startTransition] = useTransition();
 
   const tankObject = tankConstructor(tank);
 
@@ -52,19 +50,10 @@ export default function StockCalculator({ tank }: Props) {
   };
 
   const handleClick = () => {
-    startTransition(() => updateTank(tank.id, currentStock, measurement));
     router.push("/");
   };
 
-  return isPending ? (
-    <div className="flex flex-col space-y-5 justify-center items-center mx-auto mt-10">
-      <strong>Guardando...</strong>
-      <div
-        className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-        role="status"
-      ></div>
-    </div>
-  ) : (
+  return (
     <div>
       <div className="mt-10">
         {

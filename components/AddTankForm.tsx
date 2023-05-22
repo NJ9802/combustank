@@ -4,10 +4,8 @@ import { PlusIcon } from "@heroicons/react/24/outline";
 import AddTankInput from "./AddTankInput";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useRouter } from "next/navigation";
-import { useTransition } from "react";
-import { createTank } from "@/app/actions";
 
-type Props = { userId: string };
+type Props = {};
 
 export type Input = {
   name: string;
@@ -18,25 +16,15 @@ export type Input = {
   stock: string;
 };
 
-export default function AddTankForm({ userId }: Props) {
+export default function AddTankForm({}: Props) {
   const { register, handleSubmit } = useForm<Input>();
-  const [isPending, startTransition] = useTransition();
   const router = useRouter();
 
   const onSubmit: SubmitHandler<Input> = (data) => {
-    startTransition(() => createTank(data, userId));
     router.push("/");
   };
 
-  return isPending ? (
-    <div className="flex flex-col space-y-5 justify-center items-center mx-auto mt-10">
-      <strong>Creando Recipiente...</strong>
-      <div
-        className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-        role="status"
-      ></div>
-    </div>
-  ) : (
+  return (
     <form
       onSubmit={handleSubmit(onSubmit)}
       className="flex w-full flex-col space-y-5"

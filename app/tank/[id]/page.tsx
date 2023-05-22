@@ -1,21 +1,10 @@
 import React from "react";
 import StockCalculator from "@/components/StockCalculator";
-import prisma from "@/lib/prisma";
 
 type Props = { params: { id: string } };
 
 export default async function page({ params }: Props) {
-  const tank = await prisma.tank.findUnique({
-    where: { id: params.id },
-    select: {
-      id: true,
-      name: true,
-      averageLength: true,
-      averageHeight: true,
-      stock: true,
-    },
-  });
-
+  const tank = { stock: 5 };
   const stock = tank?.stock;
 
   return (

@@ -2,19 +2,14 @@ import FirstHome from "@/components/FirstHome";
 import Tank from "@/components/Tank";
 import Link from "next/link";
 import React from "react";
-import prisma from "@/lib/prisma";
-import { auth } from "@clerk/nextjs";
 
 type Props = {};
 
 export const revalidate = 0;
 
 export default async function page({}: Props) {
-  const { userId } = auth();
 
-  const tanks = await prisma.tank.findMany({
-    where: { adminId: userId || "" },
-  });
+  const tanks:number[] = []
 
   return (
     <section>
