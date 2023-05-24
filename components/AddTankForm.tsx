@@ -4,6 +4,7 @@ import { PlusIcon } from "@heroicons/react/24/outline";
 import AddTankInput from "./AddTankInput";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useRouter } from "next/navigation";
+import { db } from "@/lib/db";
 
 type Props = {};
 
@@ -20,7 +21,21 @@ export default function AddTankForm({}: Props) {
   const { register, handleSubmit } = useForm<Input>();
   const router = useRouter();
 
-  const onSubmit: SubmitHandler<Input> = (data) => {
+  const onSubmit: SubmitHandler<Input> = async (data) => {
+    const { name, averageLength, averageHeight, capacity, measurement, stock } =
+      data;
+    try {
+      const id = await db.tanks.add({
+        name,
+        averageLength: parseFloat(averageLength),
+        averageHeight: parseFloat(averageHeight),
+        capacity: parseFloat(capacity),
+        measurement: parseFloat(measurement),
+        stock: parseFloat(stock),
+      });
+    } catch (error) {
+      console.log(error);
+    }
     router.push("/");
   };
 

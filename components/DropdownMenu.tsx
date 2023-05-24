@@ -4,14 +4,12 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { HomeIcon } from "@heroicons/react/24/outline";
-import { ArrowRightOnRectangleIcon } from "@heroicons/react/24/outline";
-import { useClerk } from "@clerk/nextjs";
+import { TrashIcon } from "@heroicons/react/24/outline";
 
 type Props = {};
 
 export default function DropdownMenu({}: Props) {
   const [isOpen, setIsOpen] = useState(false);
-  const { signOut } = useClerk();
 
   return (
     <div className="relative">
@@ -38,16 +36,16 @@ export default function DropdownMenu({}: Props) {
             </Link>
           </li>
           <li>
+            <Link href="/delete" className="text-sm">
+              <TrashIcon className="h-6 w-6" />
+              Eliminar Tanque
+            </Link>
+          </li>
+          <li>
             <Link href="/" className="text-sm">
               <HomeIcon className="h-6 w-6" />
               Home
             </Link>
-          </li>
-          <li>
-            <a role="button" onClick={() => signOut()} className="text-sm">
-              <ArrowRightOnRectangleIcon className="h-6 w-6 " />
-              Cerrar Sesión
-            </a>
           </li>
         </ul>
       </nav>

@@ -1,13 +1,8 @@
+import { type Tank } from "@/lib/db";
 import React from "react";
 
 type Props = {
-  tank: {
-    id: string;
-    name: string;
-    capacity: number;
-    stock: number;
-    measurement: number;
-  };
+  tank: Tank;
 };
 
 export default function Tank({ tank }: Props) {

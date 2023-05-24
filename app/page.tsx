@@ -1,19 +1,24 @@
+"use client";
 import FirstHome from "@/components/FirstHome";
-import Tank from "@/components/Tank";
+import Skeleton from "@/components/Skeleton";
+import TankComponent from "@/components/Tank";
+import { Tank } from "@/lib/db";
+import { fetchTanks } from "@/lib/tanksFetcher";
 import Link from "next/link";
 import React from "react";
+import useSWR from "swr";
 
 type Props = {};
 
-export const revalidate = 0;
+export default function page({}: Props) {
+  const { data: tanks, error, isLoading } = useSWR<Tank[]>("tanks", fetchTanks);
 
-export default async function page({}: Props) {
-
-  const tanks:number[] = []
+  if (error) return <div>Error al cargar los datos</div>;
+  if (isLoading) return <Skeleton />;
 
   return (
     <section>
-      {tanks.length === 0 ? (
+      {tanks?.length === 0 ? (
         <FirstHome />
       ) : (
         <div className="px-5 pt-10 flex flex-col justify-center items-center space-y-10">
@@ -21,11 +26,11 @@ export default async function page({}: Props) {
 
           <div
             className="w-full md:max-w-lg flex flex-col pb-2 pr-2 space-y-5 max-h-[calc(100vh-25rem)] lg:max-h-[calc(100vh-15rem)]
-          overflow-y-scroll"
+            overflow-y-scroll"
           >
-            {tanks.map((tank) => (
+            {tanks?.map((tank) => (
               <Link href={`/tank/${tank.id}`} key={tank.id}>
-                <Tank tank={tank} />
+                <TankComponent tank={tank} />
               </Link>
             ))}
           </div>

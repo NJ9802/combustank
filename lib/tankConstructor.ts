@@ -1,5 +1,4 @@
 import TankModel from "@/models/Tank";
-import { Tank } from "@prisma/client";
 
 export default function tankConstructor(tank: {
   name: string;

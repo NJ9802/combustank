@@ -1,17 +1,11 @@
-"use client";
 import React, { useState, useEffect } from "react";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/navigation";
 import tankConstructor from "@/lib/tankConstructor";
+import { Tank, db } from "@/lib/db";
 
 type Props = {
-  tank: {
-    id: string;
-    name: string;
-    averageLength: number;
-    averageHeight: number;
-    stock: number;
-  };
+  tank: Tank;
 };
 
 export default function StockCalculator({ tank }: Props) {
@@ -49,7 +43,11 @@ export default function StockCalculator({ tank }: Props) {
     }
   };
 
-  const handleClick = () => {
+  const handleClick = async () => {
+    await db.tanks.update(tank.id as number, {
+      stock: currentStock,
+      measurement,
+    });
     router.push("/");
   };
 
