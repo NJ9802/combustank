@@ -26,7 +26,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" data-theme="corporate">
+    <html lang="es" data-theme="corporate">
       <body className={inter.className}>
         <Navbar />
         <main>{children}</main>
