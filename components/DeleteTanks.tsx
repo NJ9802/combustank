@@ -30,11 +30,12 @@ export default function DeleteTanks({}: Props) {
 
   return (
     <div
-      className="w-full md:max-w-lg flex flex-col pb-2 pr-2 space-y-5 max-h-[calc(100vh-25rem)] lg:max-h-[calc(100vh-15rem)]
+      className="w-full md:max-w-lg flex flex-col pb-2 pr-2 space-y-5
+      max-h-[calc(100vh-25rem)] lg:max-h-[calc(100vh-15rem)]
     overflow-y-scroll"
     >
       {tanks?.map((tank) => (
-        <div>
+        <div key={tank.id}>
           <a href={`#modal${tank.id}`}>
             <TankComponent tank={tank} />
           </a>
