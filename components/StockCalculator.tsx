@@ -19,7 +19,12 @@ export default function StockCalculator({ tank }: Props) {
 
   useEffect(
     () =>
-      setConsumption(currentStock === 0 ? 0 : tankObject.stock - currentStock),
+      setConsumption(
+        currentStock === 0
+          ? 0
+          : Math.round((tankObject.stock - currentStock) * 10 ** decimals) /
+              10 ** decimals
+      ),
     [currentStock, tankObject]
   );
 
