@@ -1,7 +1,6 @@
 "use client";
 
 import FirstHome from "@/components/FirstHome";
-import Skeleton from "@/components/Skeleton";
 import TankComponent from "@/components/Tank";
 import { Tank } from "@/lib/db";
 import { fetchTanks } from "@/lib/tanksFetcher";
@@ -9,6 +8,7 @@ import Link from "next/link";
 import useSWR from "swr";
 
 import React from "react";
+import Spinner from "./Spinner";
 
 type Props = {};
 
@@ -16,7 +16,7 @@ export default function Home({}: Props) {
   const { data: tanks, error, isLoading } = useSWR<Tank[]>("tanks", fetchTanks);
 
   if (error) return <div>Error al cargar los datos</div>;
-  if (isLoading) return <Skeleton />;
+  if (isLoading) return <Spinner />;
 
   return (
     <section>

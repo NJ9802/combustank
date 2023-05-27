@@ -3,22 +3,12 @@ import { Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/react";
+import { Metadata } from "next";
+import meta from "./metadata";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
-  title: "CombusTank",
-  description: `Optimiza el cálculo del combustible en 
-  tanques cilíndricos horizontales de cabezas planas
-  con nuestra herramienta especializada. 
-  Ahorra tiempo en tus operaciones diarias con cálculos precisos y eficientes. 
-  Descubre cómo nuestra herramienta puede beneficiar tu labor hoy mismo.`,
-  icons: {
-    apple: ["/apple-touch-icon.png?v=4"],
-    shortcut: ["/apple-touch-icon.png"],
-  },
-  manifest: "/manifest.json",
-};
+export const metadata: Metadata = meta;
 
 export default async function RootLayout({
   children,
@@ -26,8 +16,8 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" data-theme="corporate">
-      <body className={inter.className}>
+    <html lang="es">
+      <body className={inter.className} onTouchStart={undefined}>
         <Navbar />
         <main>{children}</main>
         <Footer />

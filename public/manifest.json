@@ -2,7 +2,6 @@
   "name": "CombusTank",
   "short_name": "CombusTank",
   "description": "Optimiza el cálculo del combustible en tanques cilíndricos horizontales de cabezas planas con nuestra herramienta especializada. Ahorra tiempo en tus operaciones diarias con cálculos precisos y eficientes. Descubre cómo nuestra herramienta puede beneficiar tu labor hoy mismo.",
-
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -16,7 +15,7 @@
     }
   ],
   "theme_color": "#4b6bfb",
-  "background_color": "#3e6774",
+  "background_color": "#ffffff",
   "display": "standalone",
   "scope": "/",
   "start_url": "/"

@@ -5,8 +5,8 @@ import { fetchTanks } from "@/lib/tanksFetcher";
 import React from "react";
 import useSWR, { mutate } from "swr";
 import TankComponent from "./Tank";
-import Skeleton from "./Skeleton";
 import { useRouter } from "next/navigation";
+import Spinner from "./Spinner";
 
 type Props = {};
 
@@ -22,7 +22,7 @@ export default function DeleteTanks({}: Props) {
 
   if (error) return <div>Error al cargar los datos</div>;
 
-  if (isLoading) return <Skeleton />;
+  if (isLoading) return <Spinner />;
 
   if (tanks?.length === 0) {
     router.push("/");

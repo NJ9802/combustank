@@ -50,8 +50,8 @@ export default function AddTankForm({}: Props) {
           {...register("name", { required: true })}
           id="tankName"
           type="text"
-          className="mr-1 px-1 text-center outline-none rounded-sm border border-secondary
-    transition-all focus:border-accent"
+          className="mr-1 px-1 text-center outline-none bg-transparent border-b border-accent
+    transition-all focus:border-primary"
         />
       </div>
       <AddTankInput
@@ -91,7 +91,7 @@ export default function AddTankForm({}: Props) {
       />
 
       <div className="pt-5 text-center">
-        <button className="btn mt-3 gap-2 btn-primary">
+        <button className="btn mt-3 gap-2 btn-accent">
           <PlusIcon className="h-6 w-6" />
           Añadir
         </button>

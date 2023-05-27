@@ -26,8 +26,8 @@ export default function AddTankInput({
           id={id}
           className={`${
             id === "stock" ? "w-20" : "w-16"
-          } mr-1 px-1 text-right outline-none rounded-sm border border-secondary
-    transition-all focus:border-accent`}
+          } mr-1 px-1 text-right bg-transparent outline-none border-b border-accent
+    transition-all focus:border-primary`}
           type="number"
           step="0.001"
           placeholder={placeholder}

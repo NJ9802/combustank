@@ -5,7 +5,7 @@ export default class Tank {
     public stock: number
   ) {}
 
-  calculateVolume(measurement: number) {
+  calculateVolume(measurement: number, decimals: number) {
     const height = measurement / 100;
     const radius = this.averageHeight / 2;
 
@@ -15,6 +15,6 @@ export default class Tank {
     const area = Math.acos(segment1) * radius ** 2 - segment2;
 
     const volume = area * this.averageLength * 1000;
-    return Math.round(volume);
+    return Math.round(volume * 10 ** decimals) / 10 ** decimals;
   }
 }
