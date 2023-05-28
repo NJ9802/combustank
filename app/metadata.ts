@@ -1,12 +1,10 @@
 import { Metadata } from "next";
+const description =
+  "Optimiza el cálculo del combustible en tanques cilíndricos horizontales de cabezas planas con nuestra herramienta especializada. Ahorra tiempo en tus operaciones diarias con cálculos precisos y eficientes. Descubre cómo nuestra herramienta puede beneficiar tu labor hoy mismo.";
 
 const metadata: Metadata = {
   title: "CombusTank",
-  description: `Optimiza el cálculo del combustible en 
-    tanques cilíndricos horizontales de cabezas planas
-    con nuestra herramienta especializada. 
-    Ahorra tiempo en tus operaciones diarias con cálculos precisos y eficientes. 
-    Descubre cómo nuestra herramienta puede beneficiar tu labor hoy mismo.`,
+  description,
   icons: {
     apple: ["/apple-touch-icon.png?v=4"],
     shortcut: ["/apple-touch-icon.png"],
@@ -21,11 +19,7 @@ const metadata: Metadata = {
   },
   openGraph: {
     title: "CombusTank",
-    description: `Optimiza el cálculo del combustible en 
-      tanques cilíndricos horizontales de cabezas planas
-      con nuestra herramienta especializada. 
-      Ahorra tiempo en tus operaciones diarias con cálculos precisos y eficientes. 
-      Descubre cómo nuestra herramienta puede beneficiar tu labor hoy mismo.`,
+    description,
     url: "https://combustank.vercel.app",
     siteName: "CombusTank",
     type: "website",
@@ -34,11 +28,7 @@ const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "CombusTank",
-    description: `Optimiza el cálculo del combustible en 
-      tanques cilíndricos horizontales de cabezas planas
-      con nuestra herramienta especializada. 
-      Ahorra tiempo en tus operaciones diarias con cálculos precisos y eficientes. 
-      Descubre cómo nuestra herramienta puede beneficiar tu labor hoy mismo.`,
+    description,
     creator: "@nj9802",
   },
 
