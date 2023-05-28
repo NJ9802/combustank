@@ -7,12 +7,12 @@ type Props = {};
 export default function page({}: Props) {
   return (
     <section>
-      <div className="px-5 max-w-lg mx-auto pt-8 flex flex-col justify-center items-center space-y-10">
+      <div className="px-5 max-w-lg mx-auto pt-4 flex flex-col justify-center items-center">
         <div
           className="w-full flex px-5 py-6 flex-col justify-center items-center bg-base-200/50
         rounded-lg text-base-content"
         >
-          <div className="flex w-full justify-evenly md:justify-center md:space-x-5 items-center font-semibold pb-10">
+          <div className="flex w-full justify-evenly md:justify-center md:space-x-5 items-center font-semibold pb-6">
             <h4>Introduzca los datos del Tanque</h4>
 
             {/* The button to open modal */}

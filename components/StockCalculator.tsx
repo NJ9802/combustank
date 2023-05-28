@@ -146,7 +146,7 @@ export default function StockCalculator({ tank }: Props) {
           </span>
         </p>
       </div>
-      <div className="mt-8 w-full text-center">
+      <div className="mt-8 w-full md:max-w-[15rem] text-center">
         <button
           onClick={handleClick}
           className="btn w-full gap-2 btn-accent"

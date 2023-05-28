@@ -91,7 +91,7 @@ export default function AddTankForm({}: Props) {
       />
 
       <div className="pt-5 text-center">
-        <button className="btn mt-3 gap-2 btn-accent">
+        <button className="btn w-full md:max-w-[15rem] mt-3 gap-2 btn-accent">
           <PlusIcon className="h-6 w-6" />
           Añadir
         </button>
