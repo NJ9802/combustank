@@ -12,17 +12,7 @@ export default function Footer({}: Props) {
     "mailto:nelson.javier.aldazabal@gmail.com",
   ];
   return (
-    <footer className="footer items-center p-4 bg-neutral text-neutral-content">
-      <div className="items-center grid-flow-col">
-        <Image
-          className="rounded-lg"
-          src="/brand2.jpeg"
-          alt="logo"
-          width={36}
-          height={36}
-        />{" "}
-        <p>CombusTank © 2023</p>
-      </div>
+    <footer className="footer gap-y-3 items-center p-4 bg-neutral text-neutral-content">
       <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
         {socials.map((social) => (
           <SocialIcon
@@ -33,6 +23,16 @@ export default function Footer({}: Props) {
             bgColor="transparent"
           />
         ))}
+      </div>
+      <div className="items-center grid-flow-col">
+        <Image
+          className="rounded-lg"
+          src="/brand2.jpeg"
+          alt="logo"
+          width={36}
+          height={36}
+        />{" "}
+        <p>CombusTank © 2023</p>
       </div>
     </footer>
   );

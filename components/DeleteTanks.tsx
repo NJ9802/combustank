@@ -31,7 +31,7 @@ export default function DeleteTanks({}: Props) {
   return (
     <div
       className="w-full md:max-w-lg flex flex-col pb-2 pr-2 space-y-5
-      max-h-[calc(100vh-21rem)] lg:max-h-[calc(100vh-17rem)]
+      max-h-[calc(100vh-19rem)] lg:max-h-[calc(100vh-17rem)]
     overflow-y-scroll"
     >
       {tanks?.map((tank) => (
