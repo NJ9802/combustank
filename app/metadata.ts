@@ -46,7 +46,7 @@ const metadata: Metadata = {
 
   appleWebApp: {
     title: "CombusTank",
-    statusBarStyle: "black-translucent",
+    statusBarStyle: "black",
     startupImage: [
       "/android-chrome-512x512.png",
       {
