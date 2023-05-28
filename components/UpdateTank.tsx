@@ -20,7 +20,7 @@ export default function UpdateTank({ id }: Props) {
   if (isLoading) return <Spinner />;
 
   return (
-    <div className="px-5 max-w-lg mx-auto pt-8 flex flex-col justify-center items-center space-y-10">
+    <div className="px-5 max-w-lg mx-auto py-4 flex flex-col justify-center items-center space-y-10">
       <div
         className="w-full flex px-5 py-5 flex-col justify-center items-center bg-base-200/50
      rounded-lg text-base-content"

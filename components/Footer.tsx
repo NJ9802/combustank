@@ -12,9 +12,15 @@ export default function Footer({}: Props) {
     "mailto:nelson.javier.aldazabal@gmail.com",
   ];
   return (
-    <footer className="footer fixed bottom-0 items-center p-4 bg-neutral text-neutral-content">
+    <footer className="footer items-center p-4 bg-neutral text-neutral-content">
       <div className="items-center grid-flow-col">
-        <Image className="rounded-lg" src="/brand2.jpeg" alt="logo" width={36} height={36} />{" "}
+        <Image
+          className="rounded-lg"
+          src="/brand2.jpeg"
+          alt="logo"
+          width={36}
+          height={36}
+        />{" "}
         <p>CombusTank © 2023</p>
       </div>
       <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">

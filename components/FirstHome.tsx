@@ -8,7 +8,7 @@ type Props = {};
 
 export default function FirstHome({}: Props) {
   return (
-    <div className="pt-10 md:pt-0 flex md:h-[calc(100vh-160px)] justify-center items-center space-x-20">
+    <div className="py-6 h-full flex justify-center items-center space-x-20">
       <div className="px-5 max-w-2xl flex flex-col justify-center items-center space-y-10 text-center">
         <h3 className="text-xl font-bold">¡Bienvenido a CombusTank!</h3>
         <div className="flex flex-col items-center justify-center space-y-2">

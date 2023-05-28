@@ -17,9 +17,12 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body className={inter.className} onTouchStart={undefined}>
+      <body
+        className={`flex flex-col ${inter.className} min-h-screen`}
+        onTouchStart={undefined}
+      >
         <Navbar />
-        <main>{children}</main>
+        <main className="flex flex-1">{children}</main>
         <Footer />
         <Analytics />
       </body>

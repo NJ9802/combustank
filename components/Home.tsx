@@ -19,7 +19,7 @@ export default function Home({}: Props) {
   if (isLoading) return <Spinner />;
 
   return (
-    <section>
+    <section className="flex-1">
       {tanks?.length === 0 ? (
         <FirstHome />
       ) : (
@@ -27,7 +27,7 @@ export default function Home({}: Props) {
           <h4 className="text-md font-bold">Seleccione el Tanque a Calcular</h4>
 
           <div
-            className="w-full md:max-w-lg flex flex-col pb-2 pr-2 space-y-5 max-h-[calc(100vh-25rem)] lg:max-h-[calc(100vh-15rem)]
+            className="w-full md:max-w-lg flex flex-col pb-2 pr-2 space-y-5 max-h-[calc(100vh-21rem)] lg:max-h-[calc(100vh-17rem)]
         overflow-y-scroll"
           >
             {tanks?.map((tank) => (

@@ -4,7 +4,7 @@ type Props = {};
 
 export default function Spinner({}: Props) {
   return (
-    <div className="pt-0 flex h-[calc(100vh-248px)] justify-center items-center">
+    <div className="pt-0 flex flex-1 justify-center items-center">
       <div
         className="inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
         role="status"
