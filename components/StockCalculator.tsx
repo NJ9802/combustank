@@ -65,7 +65,7 @@ export default function StockCalculator({ tank }: Props) {
 
   return (
     <div className="w-full flex flex-col items-center">
-      <div className="mt-5 py-2 w-full text-center bg-secondary/10">
+      <div className="mt-5 py-2 w-full rounded-md text-center bg-secondary/10">
         <label className="underline decoration-secondary" htmlFor="measurement">
           Introduzca la nueva Medición
         </label>
