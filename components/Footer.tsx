@@ -13,7 +13,7 @@ export default function Footer({}: Props) {
   ];
   return (
     <footer className="footer gap-y-3 items-center p-4 bg-neutral text-neutral-content">
-      <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+      <div className="grid-flow-col gap-4">
         {socials.map((social) => (
           <SocialIcon
             className="w-1"
@@ -24,7 +24,7 @@ export default function Footer({}: Props) {
           />
         ))}
       </div>
-      <div className="items-center grid-flow-col">
+      <div className="grid-flow-col items-center md:place-self-center md:justify-self-end">
         <Image
           className="rounded-lg"
           src="/brand2.jpeg"
