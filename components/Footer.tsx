@@ -24,16 +24,6 @@ export default function Footer({}: Props) {
           />
         ))}
       </div>
-      <div className="grid-flow-col items-center md:place-self-center md:justify-self-end">
-        <Image
-          className="rounded-lg"
-          src="/brand2.jpeg"
-          alt="logo"
-          width={36}
-          height={36}
-        />{" "}
-        <p>CombusTank © 2023</p>
-      </div>
     </footer>
   );
 }
