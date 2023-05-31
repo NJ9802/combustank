@@ -80,7 +80,7 @@ export default function ActionsButtons({}: Props) {
       </div>
       
       <div className="modal" id="infoModal">
-        <div className="modal-box text-base-content text-justify">
+        <div className="modal-box text-base-content">
           <h3 className="font-bold text-lg">Acerca de CombusTank</h3>
           <hr />
           <p className="py-4">

@@ -11,7 +11,7 @@ export default function FirstHome({}: Props) {
     <div className="py-6 h-full flex justify-center items-center space-x-20">
       <div className="px-5 max-w-2xl flex flex-col justify-center items-center space-y-10 text-center">
         <h3 className="text-xl font-bold">¡Bienvenido a CombusTank!</h3>
-        <div className="flex flex-col items-center text-justify space-y-5">
+        <div className="flex flex-col items-center space-y-5">
           <p>
             Descubre <span className="font-semibold">CombusTank</span>, una
             aplicación diseñada para simplificar el cálculo de la cantidad de
