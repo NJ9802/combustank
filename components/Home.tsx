@@ -23,11 +23,11 @@ export default function Home({}: Props) {
       {tanks?.length === 0 ? (
         <FirstHome />
       ) : (
-        <div className="px-5 pt-10 flex flex-col justify-center items-center space-y-10">
+        <div className="px-5 pt-10 flex flex-col justify-center items-center">
           <h4 className="text-md font-bold">Seleccione el Tanque a Calcular</h4>
-
+          <hr className="w-full" />
           <div
-            className="w-full md:max-w-lg flex flex-col pb-2 pr-2 space-y-5 max-h-[calc(100vh-11rem)] lg:max-h-[calc(100vh-17rem)]
+            className="w-full mt-3 md:max-w-lg flex flex-col pb-2 pr-2 space-y-5 max-h-[calc(100vh-9rem)]
         overflow-y-scroll"
           >
             {tanks?.map((tank) => (

@@ -125,8 +125,8 @@ export default function StockCalculator({ tank }: Props) {
           </div>
         </div>
       </div>
-
-      <div className="flex mt-8">
+      <hr className="w-full mt-4" />
+      <div className="flex mt-4">
         <p>
           Existencia Actual:{" "}
           <span className="font-semibold">
@@ -146,6 +146,7 @@ export default function StockCalculator({ tank }: Props) {
           </span>
         </p>
       </div>
+      <hr className="w-full mt-4"/>
       <div className="mt-8 w-full md:max-w-[15rem] text-center">
         <button
           onClick={handleClick}

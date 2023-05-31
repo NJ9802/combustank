@@ -25,13 +25,13 @@ export default function UpdateTank({ id }: Props) {
         className="w-full flex px-5 py-5 flex-col justify-center items-center bg-base-200/50
      rounded-lg text-base-content"
       >
-        <h4 className="text-lg font-semibold pb-5 underline decoration-secondary decoration-2">
-          {tank?.name}
-        </h4>
-        <div className="flex">
-          <p className="mr-1">{`Existencia: ${tank?.stock}`}</p>
+        <h4 className="text-lg font-semibold">{tank?.name}</h4>
+        <hr className="w-full" />
+        <div className="flex my-3">
+          <p className="mr-1">{`Existencia Anterior: ${tank?.stock}`}</p>
           <span className="font-bold">lts</span>
         </div>
+        <hr className="w-full" />
         {!!tank && <StockCalculator tank={tank} />}
       </div>
     </div>

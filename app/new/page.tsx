@@ -12,7 +12,7 @@ export default function page({}: Props) {
           className="w-full flex px-5 py-6 flex-col justify-center items-center bg-base-200/50
         rounded-lg text-base-content"
         >
-          <div className="flex w-full justify-evenly md:justify-center md:space-x-5 items-center font-semibold pb-6">
+          <div className="flex w-full justify-evenly md:justify-center md:space-x-5 items-center font-semibold">
             <h4>Introduzca los datos del Tanque</h4>
 
             {/* The button to open modal */}
@@ -20,6 +20,7 @@ export default function page({}: Props) {
               <QuestionMarkCircleIcon className="h-5 w-5" />
             </label>
           </div>
+            <hr className="w-full"/>
           <AddTankForm />
         </div>
       </div>

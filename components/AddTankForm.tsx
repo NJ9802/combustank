@@ -42,7 +42,7 @@ export default function AddTankForm({}: Props) {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex w-full flex-col space-y-5"
+      className="flex w-full flex-col mt-5 space-y-5"
     >
       <div className="flex flex-col items-center">
         <label htmlFor="tankName">Nombre del Tanque:</label>
@@ -89,8 +89,8 @@ export default function AddTankForm({}: Props) {
         id="stock"
         register={register}
       />
-
-      <div className="pt-5 text-center">
+      <hr />
+      <div className="text-center">
         <button className="btn w-full md:max-w-[15rem] mt-3 gap-2 btn-accent">
           <PlusIcon className="h-6 w-6" />
           Añadir
