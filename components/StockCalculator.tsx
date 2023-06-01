@@ -25,7 +25,7 @@ export default function StockCalculator({ tank }: Props) {
           : Math.round((tankObject.stock - currentStock) * 10 ** decimals) /
               10 ** decimals
       ),
-    [currentStock, tankObject]
+    [currentStock, tankObject, decimals]
   );
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -146,7 +146,7 @@ export default function StockCalculator({ tank }: Props) {
           </span>
         </p>
       </div>
-      <hr className="w-full mt-4"/>
+      <hr className="w-full mt-4" />
       <div className="mt-8 w-full md:max-w-[15rem] text-center">
         <button
           onClick={handleClick}
